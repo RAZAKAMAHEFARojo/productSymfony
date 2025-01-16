@@ -1,4 +1,15 @@
 {{ form_start(form) }}
     {{ form_widget(form) }}
+     <div class="mb-3">
+        {{ form_label(form.name, 'Name', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_errors(form.name, {'attr': {'class': 'text-danger'}}) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.description, 'Description', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_errors(form.description, {'attr': {'class': 'text-danger'}}) }}
+    </div>
+
+    <button type="submit" class="btn btn-primary">{{ button_label }}</button>
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
