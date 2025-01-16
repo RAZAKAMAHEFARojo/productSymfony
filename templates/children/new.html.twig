@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Children{% endblock %}
+
+{% block body %}
+    <h1>Create new Children</h1>
+
+    {{ include('children/_form.html.twig') }}
+
+    <a href="{{ path('app_children_index') }}">back to list</a>
+{% endblock %}

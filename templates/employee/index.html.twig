@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Employee index{% endblock %}
+
+{% block body %}
+    <h1>Employee index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Birthdaydate</th>
+                <th>Placeofbirth</th>
+                <th>Adress</th>
+                <th>Fathername</th>
+                <th>Mothername</th>
+                <th>Cin</th>
+                <th>Dateofissue</th>
+                <th>Matricule</th>
+                <th>Cnapsnumber</th>
+                <th>Osie</th>
+                <th>Companyposition</th>
+                <th>Category</th>
+                <th>Departement</th>
+                <th>Statut</th>
+                <th>Dateofhire</th>
+                <th>Basesalary</th>
+                <th>Typeofpayment</th>
+                <th>Bankaccountnumber</th>
+                <th>Accountname</th>
+                <th>Bankname</th>
+                <th>Bankadress</th>
+                <th>Rib</th>
+                <th>Child</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for employee in employees %}
+            <tr>
+                <td>{{ employee.id }}</td>
+                <td>{{ employee.firstname }}</td>
+                <td>{{ employee.lastname }}</td>
+                <td>{{ employee.birthdaydate ? employee.birthdaydate|date('Y-m-d') : '' }}</td>
+                <td>{{ employee.placeofbirth }}</td>
+                <td>{{ employee.adress }}</td>
+                <td>{{ employee.fathername }}</td>
+                <td>{{ employee.mothername }}</td>
+                <td>{{ employee.cin }}</td>
+                <td>{{ employee.dateofissue }}</td>
+                <td>{{ employee.matricule }}</td>
+                <td>{{ employee.cnapsnumber }}</td>
+                <td>{{ employee.osie }}</td>
+                <td>{{ employee.companyposition }}</td>
+                <td>{{ employee.category }}</td>
+                <td>{{ employee.departement }}</td>
+                <td>{{ employee.statut }}</td>
+                <td>{{ employee.dateofhire }}</td>
+                <td>{{ employee.basesalary }}</td>
+                <td>{{ employee.typeofpayment }}</td>
+                <td>{{ employee.bankaccountnumber }}</td>
+                <td>{{ employee.accountname }}</td>
+                <td>{{ employee.bankname }}</td>
+                <td>{{ employee.bankadress }}</td>
+                <td>{{ employee.rib }}</td>
+                <td>{{ employee.child }}</td>
+                <td>
+                    <a href="{{ path('app_employee_show', {'id': employee.id}) }}">show</a>
+                    <a href="{{ path('app_employee_edit', {'id': employee.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="27">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_employee_new') }}">Create new</a>
+{% endblock %}

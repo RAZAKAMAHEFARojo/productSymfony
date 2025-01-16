@@ -1,0 +1,122 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Employee{% endblock %}
+
+{% block body %}
+    <h1>Employee</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ employee.id }}</td>
+            </tr>
+            <tr>
+                <th>Firstname</th>
+                <td>{{ employee.firstname }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ employee.lastname }}</td>
+            </tr>
+            <tr>
+                <th>Birthdaydate</th>
+                <td>{{ employee.birthdaydate ? employee.birthdaydate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Placeofbirth</th>
+                <td>{{ employee.placeofbirth }}</td>
+            </tr>
+            <tr>
+                <th>Adress</th>
+                <td>{{ employee.adress }}</td>
+            </tr>
+            <tr>
+                <th>Fathername</th>
+                <td>{{ employee.fathername }}</td>
+            </tr>
+            <tr>
+                <th>Mothername</th>
+                <td>{{ employee.mothername }}</td>
+            </tr>
+            <tr>
+                <th>Cin</th>
+                <td>{{ employee.cin }}</td>
+            </tr>
+            <tr>
+                <th>Dateofissue</th>
+                <td>{{ employee.dateofissue }}</td>
+            </tr>
+            <tr>
+                <th>Matricule</th>
+                <td>{{ employee.matricule }}</td>
+            </tr>
+            <tr>
+                <th>Cnapsnumber</th>
+                <td>{{ employee.cnapsnumber }}</td>
+            </tr>
+            <tr>
+                <th>Osie</th>
+                <td>{{ employee.osie }}</td>
+            </tr>
+            <tr>
+                <th>Companyposition</th>
+                <td>{{ employee.companyposition }}</td>
+            </tr>
+            <tr>
+                <th>Category</th>
+                <td>{{ employee.category }}</td>
+            </tr>
+            <tr>
+                <th>Departement</th>
+                <td>{{ employee.departement }}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                <td>{{ employee.statut }}</td>
+            </tr>
+            <tr>
+                <th>Dateofhire</th>
+                <td>{{ employee.dateofhire }}</td>
+            </tr>
+            <tr>
+                <th>Basesalary</th>
+                <td>{{ employee.basesalary }}</td>
+            </tr>
+            <tr>
+                <th>Typeofpayment</th>
+                <td>{{ employee.typeofpayment }}</td>
+            </tr>
+            <tr>
+                <th>Bankaccountnumber</th>
+                <td>{{ employee.bankaccountnumber }}</td>
+            </tr>
+            <tr>
+                <th>Accountname</th>
+                <td>{{ employee.accountname }}</td>
+            </tr>
+            <tr>
+                <th>Bankname</th>
+                <td>{{ employee.bankname }}</td>
+            </tr>
+            <tr>
+                <th>Bankadress</th>
+                <td>{{ employee.bankadress }}</td>
+            </tr>
+            <tr>
+                <th>Rib</th>
+                <td>{{ employee.rib }}</td>
+            </tr>
+            <tr>
+                <th>Child</th>
+                <td>{{ employee.child }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_employee_index') }}">back to list</a>
+
+    <a href="{{ path('app_employee_edit', {'id': employee.id}) }}">edit</a>
+
+    {{ include('employee/_delete_form.html.twig') }}
+{% endblock %}

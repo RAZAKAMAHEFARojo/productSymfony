@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Children index{% endblock %}
+
+{% block body %}
+    <h1>Children index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Childname</th>
+                <th>Childage</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for child in childrens %}
+            <tr>
+                <td>{{ child.id }}</td>
+                <td>{{ child.childname }}</td>
+                <td>{{ child.childage }}</td>
+                <td>
+                    <a href="{{ path('app_children_show', {'id': child.id}) }}">show</a>
+                    <a href="{{ path('app_children_edit', {'id': child.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_children_new') }}">Create new</a>
+{% endblock %}
