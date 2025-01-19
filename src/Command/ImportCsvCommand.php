@@ -64,7 +64,7 @@ class ImportCsvCommand extends Command
                 $entity->setDescription($data[1]);
                 $entity->setPrice($data[2]);
                 $entity->setCover($data[3]);
-                $entity->setStock($data[3]);
+                $entity->setStock($data[4]);
                 
 
                 // Ajouter à l'EntityManager
