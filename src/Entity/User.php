@@ -19,6 +19,12 @@ class User
     #[ORM\Column(nullable: true)]
     private ?int $age = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $gender = null;
+
+    #[ORM\Column]
+    private ?bool $isyoung = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -47,4 +53,29 @@ class User
 
         return $this;
     }
+
+    public function getGender(): ?string
+    {
+        return $this->gender;
+    }
+
+    public function setGender(string $gender): static
+    {
+        $this->gender = $gender;
+
+        return $this;
+    }
+
+    public function isyoung(): ?bool
+    {
+        return $this->isyoung;
+    }
+
+    public function setYoung(bool $isyoung): static
+    {
+        $this->isyoung = $isyoung;
+
+        return $this;
+    }
+
 }
