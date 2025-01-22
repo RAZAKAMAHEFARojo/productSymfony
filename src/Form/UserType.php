@@ -19,35 +19,35 @@ class UserType extends AbstractType
             ->add('firstname')
             ->add('age')
             ->add('username')
-            ->add('isYoung', ChoiceType::class, [
-                'choices' => [
-                    'Oui' => true,
-                    'Non' => false,
-                ],
-                'expanded' => false, // false pour liste déroulante, true pour boutons radio
-                'multiple' => false, // liste à choix unique
-                'label' => 'Jeune',
-            ])
-            ->add('gender', ChoiceType::class, [
-                'choices' => [
-                    'Homme' => true,
-                    'Femme' => false,
-                ],
-                'expanded' => false, // false pour liste déroulante, true pour boutons radio
-                'multiple' => false, // liste à choix unique
-                'label' => 'Genre',
-            ])
+            // ->add('isYoung', ChoiceType::class, [
+            //     'choices' => [
+            //         'Oui' => true,
+            //         'Non' => false,
+            //     ],
+            //     'expanded' => false, // false pour liste déroulante, true pour boutons radio
+            //     'multiple' => false, // liste à choix unique
+            //     'label' => 'Jeune',
+            // ])
+            // ->add('gender', ChoiceType::class, [
+            //     'choices' => [
+            //         'Homme' => true,
+            //         'Femme' => false,
+            //     ],
+            //     'expanded' => false, // false pour liste déroulante, true pour boutons radio
+            //     'multiple' => false, // liste à choix unique
+            //     'label' => 'Genre',
+            // ])
             
-            ->add('roles', ChoiceType::class, [
-                'choices' => [
-                    'Administrateur' => 'ROLE_ADMIN',
-                    'Utilisateur' => 'ROLE_USER',
-                    'Manager' => 'ROLE_MANAGER',
-                ],
-                'multiple' => true, // Permet la sélection multiple
-                'expanded' => false, // false = liste déroulante, true = cases à cocher
-                'label' => 'Rôles',
-            ])
+            // ->add('roles', ChoiceType::class, [
+            //     'choices' => [
+            //         'Administrateur' => 'ROLE_ADMIN',
+            //         'Utilisateur' => 'ROLE_USER',
+            //         'Manager' => 'ROLE_MANAGER',
+            //     ],
+            //     'multiple' => true, // Permet la sélection multiple
+            //     'expanded' => false, // false = liste déroulante, true = cases à cocher
+            //     'label' => 'Rôles',
+            // ])
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
