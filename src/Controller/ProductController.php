@@ -6,6 +6,7 @@ use App\Entity\Product;
 use App\Form\ProductType;
 use App\Repository\ProductRepository;
 use App\Services\ProductServices;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 use Knp\Component\Pager\PaginatorInterface;
@@ -41,7 +42,7 @@ final class ProductController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            
+            $product->setCreatedBy($this->getUser());
             $cover = $form->get('cover')->getData();
             
             if ($cover) {
@@ -118,14 +119,11 @@ final class ProductController extends AbstractController
         $this->productService = $productService;
     }
 
-    #[Route('/{id}', name: 'app_product_delete', methods: ['POST'])]
-    public function delete(Request $request, Product $product): Response
+    #[Route('/{id}', name: 'app_product_delete', methods: ['GET'])]
+    public function delete(Product $product, EntityManagerInterface $entityManager): Response
     {
-        // Vérification du token CSRF
-        if ($this->isCsrfTokenValid('delete' . $product->getId(), $request->request->get('_token'))) {
-            // Utiliser le service pour supprimer le produit
-            $this->productService->deleteProduct($product);
-        }
+
+        $this->productService->deleteProduct($product);
 
         // Redirection après suppression
         return $this->redirectToRoute('app_product_index', [], Response::HTTP_SEE_OTHER);
